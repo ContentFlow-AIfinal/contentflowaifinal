@@ -9,38 +9,188 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedAppIndexRouteImport } from './routes/_authenticated/app/index'
+import { Route as AuthenticatedAppWarehouseRouteImport } from './routes/_authenticated/app/warehouse'
+import { Route as AuthenticatedAppTemplatesRouteImport } from './routes/_authenticated/app/templates'
+import { Route as AuthenticatedAppSearchRouteImport } from './routes/_authenticated/app/search'
+import { Route as AuthenticatedAppPromptsRouteImport } from './routes/_authenticated/app/prompts'
+import { Route as AuthenticatedAppCoursesRouteImport } from './routes/_authenticated/app/courses'
+import { Route as AuthenticatedAppChatRouteImport } from './routes/_authenticated/app/chat'
+import { Route as AuthenticatedAppCampaignsRouteImport } from './routes/_authenticated/app/campaigns'
+import { Route as AuthenticatedAppBrandRouteImport } from './routes/_authenticated/app/brand'
 
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAppIndexRoute = AuthenticatedAppIndexRouteImport.update({
+  id: '/app/',
+  path: '/app/',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAppWarehouseRoute =
+  AuthenticatedAppWarehouseRouteImport.update({
+    id: '/app/warehouse',
+    path: '/app/warehouse',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedAppTemplatesRoute =
+  AuthenticatedAppTemplatesRouteImport.update({
+    id: '/app/templates',
+    path: '/app/templates',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedAppSearchRoute = AuthenticatedAppSearchRouteImport.update({
+  id: '/app/search',
+  path: '/app/search',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAppPromptsRoute = AuthenticatedAppPromptsRouteImport.update({
+  id: '/app/prompts',
+  path: '/app/prompts',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAppCoursesRoute = AuthenticatedAppCoursesRouteImport.update({
+  id: '/app/courses',
+  path: '/app/courses',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAppChatRoute = AuthenticatedAppChatRouteImport.update({
+  id: '/app/chat',
+  path: '/app/chat',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAppCampaignsRoute =
+  AuthenticatedAppCampaignsRouteImport.update({
+    id: '/app/campaigns',
+    path: '/app/campaigns',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedAppBrandRoute = AuthenticatedAppBrandRouteImport.update({
+  id: '/app/brand',
+  path: '/app/brand',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/app/brand': typeof AuthenticatedAppBrandRoute
+  '/app/campaigns': typeof AuthenticatedAppCampaignsRoute
+  '/app/chat': typeof AuthenticatedAppChatRoute
+  '/app/courses': typeof AuthenticatedAppCoursesRoute
+  '/app/prompts': typeof AuthenticatedAppPromptsRoute
+  '/app/search': typeof AuthenticatedAppSearchRoute
+  '/app/templates': typeof AuthenticatedAppTemplatesRoute
+  '/app/warehouse': typeof AuthenticatedAppWarehouseRoute
+  '/app/': typeof AuthenticatedAppIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/app/brand': typeof AuthenticatedAppBrandRoute
+  '/app/campaigns': typeof AuthenticatedAppCampaignsRoute
+  '/app/chat': typeof AuthenticatedAppChatRoute
+  '/app/courses': typeof AuthenticatedAppCoursesRoute
+  '/app/prompts': typeof AuthenticatedAppPromptsRoute
+  '/app/search': typeof AuthenticatedAppSearchRoute
+  '/app/templates': typeof AuthenticatedAppTemplatesRoute
+  '/app/warehouse': typeof AuthenticatedAppWarehouseRoute
+  '/app': typeof AuthenticatedAppIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/_authenticated/app/brand': typeof AuthenticatedAppBrandRoute
+  '/_authenticated/app/campaigns': typeof AuthenticatedAppCampaignsRoute
+  '/_authenticated/app/chat': typeof AuthenticatedAppChatRoute
+  '/_authenticated/app/courses': typeof AuthenticatedAppCoursesRoute
+  '/_authenticated/app/prompts': typeof AuthenticatedAppPromptsRoute
+  '/_authenticated/app/search': typeof AuthenticatedAppSearchRoute
+  '/_authenticated/app/templates': typeof AuthenticatedAppTemplatesRoute
+  '/_authenticated/app/warehouse': typeof AuthenticatedAppWarehouseRoute
+  '/_authenticated/app/': typeof AuthenticatedAppIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/app/brand'
+    | '/app/campaigns'
+    | '/app/chat'
+    | '/app/courses'
+    | '/app/prompts'
+    | '/app/search'
+    | '/app/templates'
+    | '/app/warehouse'
+    | '/app/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/app/brand'
+    | '/app/campaigns'
+    | '/app/chat'
+    | '/app/courses'
+    | '/app/prompts'
+    | '/app/search'
+    | '/app/templates'
+    | '/app/warehouse'
+    | '/app'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/auth'
+    | '/_authenticated/app/brand'
+    | '/_authenticated/app/campaigns'
+    | '/_authenticated/app/chat'
+    | '/_authenticated/app/courses'
+    | '/_authenticated/app/prompts'
+    | '/_authenticated/app/search'
+    | '/_authenticated/app/templates'
+    | '/_authenticated/app/warehouse'
+    | '/_authenticated/app/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +198,104 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/app/': {
+      id: '/_authenticated/app/'
+      path: '/app'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AuthenticatedAppIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/app/warehouse': {
+      id: '/_authenticated/app/warehouse'
+      path: '/app/warehouse'
+      fullPath: '/app/warehouse'
+      preLoaderRoute: typeof AuthenticatedAppWarehouseRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/app/templates': {
+      id: '/_authenticated/app/templates'
+      path: '/app/templates'
+      fullPath: '/app/templates'
+      preLoaderRoute: typeof AuthenticatedAppTemplatesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/app/search': {
+      id: '/_authenticated/app/search'
+      path: '/app/search'
+      fullPath: '/app/search'
+      preLoaderRoute: typeof AuthenticatedAppSearchRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/app/prompts': {
+      id: '/_authenticated/app/prompts'
+      path: '/app/prompts'
+      fullPath: '/app/prompts'
+      preLoaderRoute: typeof AuthenticatedAppPromptsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/app/courses': {
+      id: '/_authenticated/app/courses'
+      path: '/app/courses'
+      fullPath: '/app/courses'
+      preLoaderRoute: typeof AuthenticatedAppCoursesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/app/chat': {
+      id: '/_authenticated/app/chat'
+      path: '/app/chat'
+      fullPath: '/app/chat'
+      preLoaderRoute: typeof AuthenticatedAppChatRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/app/campaigns': {
+      id: '/_authenticated/app/campaigns'
+      path: '/app/campaigns'
+      fullPath: '/app/campaigns'
+      preLoaderRoute: typeof AuthenticatedAppCampaignsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/app/brand': {
+      id: '/_authenticated/app/brand'
+      path: '/app/brand'
+      fullPath: '/app/brand'
+      preLoaderRoute: typeof AuthenticatedAppBrandRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAppBrandRoute: typeof AuthenticatedAppBrandRoute
+  AuthenticatedAppCampaignsRoute: typeof AuthenticatedAppCampaignsRoute
+  AuthenticatedAppChatRoute: typeof AuthenticatedAppChatRoute
+  AuthenticatedAppCoursesRoute: typeof AuthenticatedAppCoursesRoute
+  AuthenticatedAppPromptsRoute: typeof AuthenticatedAppPromptsRoute
+  AuthenticatedAppSearchRoute: typeof AuthenticatedAppSearchRoute
+  AuthenticatedAppTemplatesRoute: typeof AuthenticatedAppTemplatesRoute
+  AuthenticatedAppWarehouseRoute: typeof AuthenticatedAppWarehouseRoute
+  AuthenticatedAppIndexRoute: typeof AuthenticatedAppIndexRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAppBrandRoute: AuthenticatedAppBrandRoute,
+  AuthenticatedAppCampaignsRoute: AuthenticatedAppCampaignsRoute,
+  AuthenticatedAppChatRoute: AuthenticatedAppChatRoute,
+  AuthenticatedAppCoursesRoute: AuthenticatedAppCoursesRoute,
+  AuthenticatedAppPromptsRoute: AuthenticatedAppPromptsRoute,
+  AuthenticatedAppSearchRoute: AuthenticatedAppSearchRoute,
+  AuthenticatedAppTemplatesRoute: AuthenticatedAppTemplatesRoute,
+  AuthenticatedAppWarehouseRoute: AuthenticatedAppWarehouseRoute,
+  AuthenticatedAppIndexRoute: AuthenticatedAppIndexRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
