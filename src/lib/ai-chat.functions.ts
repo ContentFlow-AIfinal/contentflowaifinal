@@ -35,7 +35,7 @@ export const chatStream = createServerFn({ method: "POST" })
 
     const lines: string[] = [];
     if (brand) {
-      const map: Record<string, string> = { story: "Brand story", mission: "Mission", vision: "Vision", tone: "Tone", writing_style: "Writing style", audience: "Audience", brand_rules: "Brand rules", cta_style: "CTA style", offer: "Core offer", pricing: "Pricing" };
+      const map: Record<string, string> = { brand_name: "Brand name", tagline: "Tagline", story: "Brand story", mission: "Mission", vision: "Vision", positioning: "Positioning / USP", differentiators: "What makes us different", tone: "Tone", writing_style: "Writing style", formality: "Formality level", language_pref: "Language preference", emoji_policy: "Emoji policy", preferred_words: "Preferred words / keywords", banned_words: "NEVER say (banned words & claims)", audience: "Audience", pain_points: "Customer pain points", objections: "Common objections", competitors: "Competitors", brand_rules: "Brand rules", cta_style: "CTA style", products: "Products & services", offer: "Core offer", pricing: "Pricing", guarantee: "Guarantee", proof: "Proof, results & testimonials", content_pillars: "Content pillars", platforms: "Platforms", sample_copy: "Sample copy written in our voice (imitate this rhythm and vocabulary)", links: "Links" };
       for (const [k, label] of Object.entries(map)) {
         const v = (brand as Record<string, unknown>)[k];
         if (typeof v === "string" && v.trim()) lines.push(`${label}: ${v}`);
