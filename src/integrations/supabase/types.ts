@@ -17,13 +17,32 @@ export type Database = {
       brand_profile: {
         Row: {
           audience: string | null
+          banned_words: string | null
+          brand_name: string | null
           brand_rules: string | null
+          competitors: string | null
+          content_pillars: string | null
           cta_style: string | null
+          differentiators: string | null
+          emoji_policy: string | null
           faqs: Json
+          formality: string | null
+          guarantee: string | null
+          language_pref: string | null
+          links: string | null
           mission: string | null
+          objections: string | null
           offer: string | null
+          pain_points: string | null
+          platforms: string | null
+          positioning: string | null
+          preferred_words: string | null
           pricing: string | null
+          products: string | null
+          proof: string | null
+          sample_copy: string | null
           story: string | null
+          tagline: string | null
           tone: string | null
           updated_at: string
           user_id: string
@@ -32,13 +51,32 @@ export type Database = {
         }
         Insert: {
           audience?: string | null
+          banned_words?: string | null
+          brand_name?: string | null
           brand_rules?: string | null
+          competitors?: string | null
+          content_pillars?: string | null
           cta_style?: string | null
+          differentiators?: string | null
+          emoji_policy?: string | null
           faqs?: Json
+          formality?: string | null
+          guarantee?: string | null
+          language_pref?: string | null
+          links?: string | null
           mission?: string | null
+          objections?: string | null
           offer?: string | null
+          pain_points?: string | null
+          platforms?: string | null
+          positioning?: string | null
+          preferred_words?: string | null
           pricing?: string | null
+          products?: string | null
+          proof?: string | null
+          sample_copy?: string | null
           story?: string | null
+          tagline?: string | null
           tone?: string | null
           updated_at?: string
           user_id: string
@@ -47,13 +85,32 @@ export type Database = {
         }
         Update: {
           audience?: string | null
+          banned_words?: string | null
+          brand_name?: string | null
           brand_rules?: string | null
+          competitors?: string | null
+          content_pillars?: string | null
           cta_style?: string | null
+          differentiators?: string | null
+          emoji_policy?: string | null
           faqs?: Json
+          formality?: string | null
+          guarantee?: string | null
+          language_pref?: string | null
+          links?: string | null
           mission?: string | null
+          objections?: string | null
           offer?: string | null
+          pain_points?: string | null
+          platforms?: string | null
+          positioning?: string | null
+          preferred_words?: string | null
           pricing?: string | null
+          products?: string | null
+          proof?: string | null
+          sample_copy?: string | null
           story?: string | null
+          tagline?: string | null
           tone?: string | null
           updated_at?: string
           user_id?: string
